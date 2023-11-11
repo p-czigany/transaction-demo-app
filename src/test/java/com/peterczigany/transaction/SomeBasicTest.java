@@ -1,6 +1,7 @@
 package com.peterczigany.transaction;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatException;
 
 import org.junit.jupiter.api.Test;
 
@@ -37,6 +38,15 @@ class SomeBasicTest {
     DummyClass dummyClass = new DummyClass();
     Boolean classMethodReturnBoolean = dummyClass.getTrue();
     assertThat(classMethodReturnBoolean).isTrue();
+  }
+
+  @Test
+  void assertThrowingAnException() {
+    assertThatException()
+        .isThrownBy(
+            () -> {
+              throw new Exception();
+            });
   }
 
   private static class DummyClass {
