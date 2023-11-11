@@ -1,12 +1,11 @@
-package com.peterczigany.transaction;
+package com.peterczigany.transaction.initproject;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatException;
 
-import com.peterczigany.transaction.initproject.InitProject;
 import org.junit.jupiter.api.Test;
 
-class SomeBasicTest {
+class InitProjectTest {
 
   /** Checks the testing framework. Method empty by design. */
   @Test
