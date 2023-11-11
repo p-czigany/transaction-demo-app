@@ -1,4 +1,4 @@
-package com.peterczigany.transaction;
+package com.peterczigany.transaction.repository;
 
 import com.peterczigany.transaction.model.Transfer;
 import java.time.LocalDateTime;
