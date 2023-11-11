@@ -1,4 +1,4 @@
-package com.peterczigany.transaction;
+package com.peterczigany.transaction.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

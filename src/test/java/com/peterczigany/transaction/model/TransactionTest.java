@@ -1,7 +1,8 @@
-package com.peterczigany.transaction;
+package com.peterczigany.transaction.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.peterczigany.transaction.model.Transaction;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import org.junit.jupiter.api.Test;
