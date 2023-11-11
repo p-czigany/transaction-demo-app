@@ -40,6 +40,7 @@ class SomeBasicTest {
     assertThat(classMethodReturnBoolean).isTrue();
   }
 
+  /** Checks exception assertions. Trivial by design. */
   @Test
   void assertThrowingAnException() {
     assertThatException()
