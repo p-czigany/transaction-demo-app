@@ -16,4 +16,9 @@ class TransactionRepositoryTest {
   void findAll() {
     assertThat(repository.findAll()).isEqualTo(Collections.emptyList());
   }
+
+  @Test
+  void findAllBetweenGivenTimes() {
+    assertThat(repository.findByLocalDateTimeBetween(LocalDateTime firstTime, LocalDateTime lastTime);
+  }
 }
