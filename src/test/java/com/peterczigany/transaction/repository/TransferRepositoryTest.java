@@ -14,18 +14,11 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 @DataJpaTest
 class TransferRepositoryTest {
 
-  @Autowired
-  TransferRepository repository;
+  @Autowired TransferRepository repository;
 
   @Test
   void findAll() {
-    repository.save(
-        new Transfer(
-            UUID.randomUUID(),
-            "someTestSender",
-            "someTestRecipient",
-            BigDecimal.TEN,
-            LocalDateTime.of(2024, 1, 1, 0, 0)));
+    repository.save(createDummyTransferForTime(LocalDateTime.of(2024, 1, 1, 0, 0)));
 
     Iterable<Transfer> returnedTransfers = repository.findAll();
     assertThat(returnedTransfers.iterator().hasNext()).isTrue();
