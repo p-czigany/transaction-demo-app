@@ -17,4 +17,11 @@ class SomeBasicTest {
     String exampleString = "some dummy string";
     assertThat(exampleString).isEqualTo("some dummy string");
   }
+
+  @Test
+  void testStringClassMethod() {
+    DummyClass dummyClass = new DummyClass();
+    String classMethodReturnString = dummyClass.getOk();
+    assertThat(classMethodReturnString).isEqualTo("OK");
+  }
 }
