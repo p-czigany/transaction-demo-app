@@ -1,10 +1,9 @@
-package com.peterczigany.transaction;
-
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.peterczigany.transaction.TransactionApplication;
 import com.peterczigany.transaction.model.Transfer;
 import com.peterczigany.transaction.repository.TransferRepository;
 import java.math.BigDecimal;
@@ -26,7 +25,7 @@ import org.springframework.test.web.servlet.MockMvc;
 @ExtendWith(SpringExtension.class)
 @AutoConfigureMockMvc
 @TestPropertySource(locations = "classpath:application-integrationtest.properties")
-class TransferControllerIntegrationTest {
+class TransactionApplicationIntegrationTest {
 
   @Autowired private MockMvc mockMvc;
 
