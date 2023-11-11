@@ -20,5 +20,6 @@ class TransactionTest {
     assertThat(transaction.getSender()).isEqualTo("Alice The Sender");
     assertThat(transaction.getRecipient()).isEqualTo("Bruce The Recipient");
     assertThat(transaction.getAmount()).isEqualTo(BigDecimal.valueOf(100000.0));
+    assertThat(transaction.getLocalDateTime()).isEqualTo(LocalDateTime.of(2045, 1, 1, 0, 0, 0, 0));
   }
 }
