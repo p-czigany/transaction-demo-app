@@ -11,6 +11,7 @@ class SomeBasicTest {
   @SuppressWarnings("java:S2699")
   void emptyTestMethod() {}
 
+  /** Checks asserting. Trivial by design. */
   @Test
   void compareTheSameString() {
     String exampleString = "some dummy string";
