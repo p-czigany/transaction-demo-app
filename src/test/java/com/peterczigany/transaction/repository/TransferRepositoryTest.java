@@ -21,6 +21,7 @@ class TransferRepositoryTest {
     repository.save(createDummyTransferForTime(LocalDateTime.of(2024, 1, 1, 0, 0)));
 
     Iterable<Transfer> returnedTransfers = repository.findAll();
+
     assertThat(returnedTransfers.iterator().hasNext()).isTrue();
   }
 
