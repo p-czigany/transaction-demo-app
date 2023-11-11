@@ -54,7 +54,7 @@ class SomeBasicTest {
   void testExceptionalClassMethod() {
     DummyClass dummyClass = new DummyClass();
 
-    assertThatException().isThrownBy(dummyClass.getException());
+    assertThatException().isThrownBy(dummyClass::getException);
   }
 
   private static class DummyClass {
