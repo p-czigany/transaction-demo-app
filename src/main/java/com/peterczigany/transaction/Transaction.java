@@ -4,10 +4,10 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 public class Transaction {
-  private UUID id;
-  private String sender;
-  private String recipient;
-  private BigDecimal amount;
+  private final UUID id;
+  private final String sender;
+  private final String recipient;
+  private final BigDecimal amount;
 
   public Transaction(UUID id, String sender, String recipient, BigDecimal amount) {
     this.id = id;
