@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.peterczigany.transaction.model.Transfer;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,11 +37,11 @@ class TransferRepositoryTest {
     repository.save(createDummyTransferForTime(LocalDateTime.of(2024, 1, 2, 0, 0)));
     repository.save(createDummyTransferForTime(LocalDateTime.of(2024, 1, 2, 0, 1)));
 
-    Iterable<Transfer> returnedTransfers =
+    List<Transfer> returnedTransfers =
         repository.findByLocalDateTimeBetween(
             LocalDateTime.of(2024, 1, 1, 0, 1), LocalDateTime.of(2024, 1, 2, 0, 0));
 
-    assertThat(returnedTransfers.iterator().hasNext()).isTrue();
+    assertThat(returnedTransfers).hasSize(2);
   }
 
   private Transfer createDummyTransferForTime(LocalDateTime localDateTime) {
