@@ -24,4 +24,10 @@ class SomeBasicTest {
     String classMethodReturnString = dummyClass.getOk();
     assertThat(classMethodReturnString).isEqualTo("OK");
   }
+
+  private static class DummyClass {
+    private String getOk() {
+      return "OK";
+    }
+  }
 }
