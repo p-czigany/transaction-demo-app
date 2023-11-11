@@ -28,4 +28,23 @@ class TransferRepositoryTest {
     Iterable<Transfer> returnedTransfers = repository.findAll();
     assertThat(returnedTransfers.iterator().hasNext()).isTrue();
   }
+
+  @Test
+  void findAllInTimeRange() {
+    repository.save(createDummyTransferForTime(LocalDateTime.of(2024, 1, 1, 0, 0)));
+    repository.save(createDummyTransferForTime(LocalDateTime.of(2024, 1, 1, 0, 1)));
+    repository.save(createDummyTransferForTime(LocalDateTime.of(2024, 1, 2, 0, 0)));
+    repository.save(createDummyTransferForTime(LocalDateTime.of(2024, 1, 2, 0, 1)));
+
+    Iterable<Transfer> returnedTransfers =
+        repository.findByLocalDateTimeBetween(
+            LocalDateTime.of(2024, 1, 1, 0, 1), LocalDateTime.of(2024, 1, 2, 0, 0));
+
+    assertThat(returnedTransfers.iterator().hasNext()).isTrue();
+  }
+
+  private Transfer createDummyTransferForTime(LocalDateTime localDateTime) {
+    return new Transfer(
+        UUID.randomUUID(), "someTestSender", "someTestRecipient", BigDecimal.TEN, localDateTime);
+  }
 }
