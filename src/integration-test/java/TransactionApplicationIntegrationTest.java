@@ -39,7 +39,7 @@ class TransactionApplicationIntegrationTest {
 
     mockMvc
         .perform(
-            get("/api/transactions/")
+            get("/transactions/")
                 .param("firstTime", firstTime.toString())
                 .param("lastTime", lastTime.toString())
                 .contentType(MediaType.APPLICATION_JSON))
