@@ -71,16 +71,4 @@ class SomeBasicTest {
   }
 }
 
-// class DummyClass {
-//  private static String getOk() {
-//    return "OK";
-//  }
-//
-//  private static Boolean getTrue() {
-//    return true;
-//  }
-//
-//  private static void getException() throws Exception {
-//    throw new Exception();
-//  }
-// }
+class InitProject {}
