@@ -25,6 +25,13 @@ class SomeBasicTest {
     assertThat(classMethodReturnString).isEqualTo("OK");
   }
 
+  /** Checks boolean assertions. Trivial by design. */
+  @Test
+  @SuppressWarnings("java:S3415")
+  void compareTheSameBoolean() {
+    assertThat(true).isTrue();
+  }
+
   private static class DummyClass {
     private String getOk() {
       return "OK";
