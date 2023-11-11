@@ -51,6 +51,11 @@ class SomeBasicTest {
     assertThatException().isThrownBy(DummyClass::getException);
   }
 
+  @Test
+  void testReachOuterClass() {
+    InitProject initProject = new InitProject();
+  }
+
   private static class DummyClass {
     private static String getOk() {
       return "OK";
@@ -65,3 +70,17 @@ class SomeBasicTest {
     }
   }
 }
+
+// class DummyClass {
+//  private static String getOk() {
+//    return "OK";
+//  }
+//
+//  private static Boolean getTrue() {
+//    return true;
+//  }
+//
+//  private static void getException() throws Exception {
+//    throw new Exception();
+//  }
+// }
