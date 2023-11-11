@@ -43,5 +43,9 @@ class SomeBasicTest {
     private String getOk() {
       return "OK";
     }
+
+    private Boolean getTrue() {
+      return true;
+    }
   }
 }
