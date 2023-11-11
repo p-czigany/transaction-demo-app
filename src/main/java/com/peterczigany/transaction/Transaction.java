@@ -19,4 +19,12 @@ public class Transaction {
   public String getSender() {
     return sender;
   }
+
+  public String getRecipient() {
+    return recipient;
+  }
+
+  public BigDecimal getAmount() {
+    return amount;
+  }
 }
