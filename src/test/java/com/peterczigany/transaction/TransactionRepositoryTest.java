@@ -25,7 +25,7 @@ class TransactionRepositoryTest {
   @Sql("/data-test.sql")
   void findAllBetweenGivenTimes() {
     List<Transaction> returnedTransactions =
-        findByLocalDateTimeBetween(
+        repository.findByLocalDateTimeBetween(
             LocalDateTime.of(2024, 1, 2, 0, 0), LocalDateTime.of(2024, 1, 3, 0, 0));
     assertThat(returnedTransactions).hasSize(2);
   }
