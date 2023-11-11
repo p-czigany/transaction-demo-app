@@ -21,9 +21,7 @@ class SomeBasicTest {
 
   @Test
   void testStringClassMethod() {
-    DummyClass dummyClass = new DummyClass();
-    String classMethodReturnString = dummyClass.getOk();
-    assertThat(classMethodReturnString).isEqualTo("OK");
+    assertThat(DummyClass.getOk()).isEqualTo("OK");
   }
 
   /** Checks boolean assertions. Trivial by design. */
@@ -35,9 +33,7 @@ class SomeBasicTest {
 
   @Test
   void testBooleanClassMethod() {
-    DummyClass dummyClass = new DummyClass();
-    Boolean classMethodReturnBoolean = dummyClass.getTrue();
-    assertThat(classMethodReturnBoolean).isTrue();
+    assertThat(DummyClass.getTrue()).isTrue();
   }
 
   /** Checks exception assertions. Trivial by design. */
@@ -52,21 +48,19 @@ class SomeBasicTest {
 
   @Test
   void testExceptionalClassMethod() {
-    DummyClass dummyClass = new DummyClass();
-
-    assertThatException().isThrownBy(dummyClass::getException);
+    assertThatException().isThrownBy(DummyClass::getException);
   }
 
   private static class DummyClass {
-    private String getOk() {
+    private static String getOk() {
       return "OK";
     }
 
-    private Boolean getTrue() {
+    private static Boolean getTrue() {
       return true;
     }
 
-    private void getException() throws Exception {
+    private static void getException() throws Exception {
       throw new Exception();
     }
   }
