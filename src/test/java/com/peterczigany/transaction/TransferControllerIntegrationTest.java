@@ -15,6 +15,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
@@ -32,18 +33,19 @@ class TransferControllerIntegrationTest {
   @Autowired private TransferRepository repository;
 
   @Test
-  void endpointTest() {
+  void endpointTest() throws Exception {
     putValuesIntoDb();
     LocalDateTime firstTime = LocalDateTime.of(2024, 1, 1, 0, 1);
     LocalDateTime lastTime = LocalDateTime.of(2024, 1, 2, 0, 0);
 
-    mockMvc.perform(
-        get("/api/transactions/")
-            .param("firstTime", firstTime.toString())
-            .param("lastTime", lastTime.toString())
-            .contentType(MediaType.APPLICATION_JSON)
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$", hasSize(2))));
+    mockMvc
+        .perform(
+            get("/api/transactions/")
+                .param("firstTime", firstTime.toString())
+                .param("lastTime", lastTime.toString())
+                .contentType(MediaType.APPLICATION_JSON))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$", hasSize(2)));
   }
 
   private void putValuesIntoDb() {
