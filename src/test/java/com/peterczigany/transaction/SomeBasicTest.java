@@ -50,6 +50,13 @@ class SomeBasicTest {
             });
   }
 
+  @Test
+  void testExceptionalClassMethod() {
+    DummyClass dummyClass = new DummyClass();
+
+    assertThatException().isThrownBy(dummyClass.getException());
+  }
+
   private static class DummyClass {
     private String getOk() {
       return "OK";
