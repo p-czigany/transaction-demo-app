@@ -1,6 +1,6 @@
 package com.peterczigany.transaction;
 
-import static com.peterczigany.transaction.initproject.InitProject;
+import com.peterczigany.transaction.initproject.InitProject;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatException;
@@ -72,5 +72,3 @@ class SomeBasicTest {
     }
   }
 }
-
-class InitProject {}
