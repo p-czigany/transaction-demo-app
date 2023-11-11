@@ -1,5 +1,7 @@
 package com.peterczigany.transaction;
 
+import static com.peterczigany.transaction.initproject.InitProject;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatException;
 
@@ -53,7 +55,7 @@ class SomeBasicTest {
 
   @Test
   void testReachOuterClass() {
-    InitProject initProject = new InitProject();
+    assertThat(InitProject.getOk()).isEqualTo("OK");
   }
 
   private static class DummyClass {
