@@ -13,5 +13,7 @@ class TransactionTest {
         new Transaction(
             null, "Alice The Sender", "Bruce The Recipient", BigDecimal.valueOf(100000.0));
     assertThat(transaction.getSender()).isEqualTo("Alice The Sender");
+    assertThat(transaction.getRecipient()).isEqualTo("Bruce The Recipient");
+    assertThat(transaction.getAmount()).isEqualTo(BigDecimal.valueOf(100000.0));
   }
 }
