@@ -65,5 +65,9 @@ class SomeBasicTest {
     private Boolean getTrue() {
       return true;
     }
+
+    private void getException() throws Exception {
+      throw new Exception();
+    }
   }
 }
