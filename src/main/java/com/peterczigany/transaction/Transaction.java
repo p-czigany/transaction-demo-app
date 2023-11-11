@@ -31,4 +31,8 @@ public class Transaction {
   public BigDecimal getAmount() {
     return amount;
   }
+
+  public LocalDateTime getLocalDateTime() {
+    return localDateTime;
+  }
 }
