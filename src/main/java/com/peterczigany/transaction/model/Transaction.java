@@ -1,11 +1,14 @@
 package com.peterczigany.transaction.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Entity
 public class Transaction {
-  private final UUID id;
+  @Id private final UUID id;
   private final String sender;
   private final String recipient;
   private final BigDecimal amount;
