@@ -32,6 +32,13 @@ class SomeBasicTest {
     assertThat(true).isTrue();
   }
 
+  @Test
+  void testBooleanClassMethod() {
+    DummyClass dummyClass = new DummyClass();
+    Boolean classMethodReturnBoolean = dummyClass.getTrue();
+    assertThat(classMethodReturnBoolean).isTrue();
+  }
+
   private static class DummyClass {
     private String getOk() {
       return "OK";
