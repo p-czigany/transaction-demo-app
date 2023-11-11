@@ -15,4 +15,8 @@ public class Transaction {
     this.recipient = recipient;
     this.amount = amount;
   }
+
+  public String getSender() {
+    return sender;
+  }
 }
