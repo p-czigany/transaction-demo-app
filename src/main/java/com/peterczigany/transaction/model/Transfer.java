@@ -6,21 +6,27 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Entity
-public class Transaction {
-  @Id private final UUID id;
-  private final String sender;
-  private final String recipient;
-  private final BigDecimal amount;
-  private final LocalDateTime localDateTime;
+@Entity(name = "transfer")
+public class Transfer {
+  @Id private UUID id;
+  private String sender;
+  private String recipient;
+  private BigDecimal amount;
+  private LocalDateTime localDateTime;
 
-  public Transaction(
+  public Transfer() {}
+
+  public Transfer(
       UUID id, String sender, String recipient, BigDecimal amount, LocalDateTime localDateTime) {
     this.id = id;
     this.sender = sender;
     this.recipient = recipient;
     this.amount = amount;
     this.localDateTime = localDateTime;
+  }
+
+  public UUID getId() {
+    return id;
   }
 
   public String getSender() {
@@ -37,5 +43,25 @@ public class Transaction {
 
   public LocalDateTime getLocalDateTime() {
     return localDateTime;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+  public void setSender(String sender) {
+    this.sender = sender;
+  }
+
+  public void setRecipient(String recipient) {
+    this.recipient = recipient;
+  }
+
+  public void setAmount(BigDecimal amount) {
+    this.amount = amount;
+  }
+
+  public void setLocalDateTime(LocalDateTime localDateTime) {
+    this.localDateTime = localDateTime;
   }
 }
