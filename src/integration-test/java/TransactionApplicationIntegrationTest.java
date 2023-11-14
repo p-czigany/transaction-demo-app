@@ -25,7 +25,7 @@ class TransactionApplicationIntegrationTest {
   @Autowired private TransferRepository repository;
 
   @Test
-  void endpointTest() throws Exception {
+  void successfulRequest() throws Exception {
     putValuesIntoDb();
     LocalDateTime firstTime = LocalDateTime.of(2024, 1, 1, 0, 1);
     LocalDateTime lastTime = LocalDateTime.of(2024, 1, 2, 0, 0);
@@ -38,6 +38,13 @@ class TransactionApplicationIntegrationTest {
                 .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$", hasSize(2)));
+  }
+
+  @Test
+  void badRequest_whenTimeFrameIsMissing() throws Exception {
+    mockMvc
+        .perform(get("/transactions").contentType(MediaType.APPLICATION_JSON))
+        .andExpect(status().isBadRequest());
   }
 
   private void putValuesIntoDb() {
