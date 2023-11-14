@@ -1,8 +1,9 @@
-package com.peterczigany.transaction;
+package com.peterczigany.transaction.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 
+import com.peterczigany.transaction.controller.TransferController;
 import com.peterczigany.transaction.model.Transfer;
 import com.peterczigany.transaction.repository.TransferRepository;
 import java.time.LocalDateTime;
@@ -20,7 +21,7 @@ class TransferControllerTest {
   @InjectMocks private TransferController controller;
 
   @Test
-  void getTransfersBetweenTimes() throws Exception {
+  void getTransfersBetweenTimes() {
     List<Transfer> transfers = List.of(new Transfer(), new Transfer());
     Mockito.when(repository.findByLocalDateTimeBetween(any(), any())).thenReturn(transfers);
 

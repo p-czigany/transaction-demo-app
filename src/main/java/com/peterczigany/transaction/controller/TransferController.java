@@ -1,4 +1,4 @@
-package com.peterczigany.transaction;
+package com.peterczigany.transaction.controller;
 
 import com.peterczigany.transaction.model.Transfer;
 import com.peterczigany.transaction.repository.TransferRepository;
