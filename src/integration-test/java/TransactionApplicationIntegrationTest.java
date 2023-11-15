@@ -10,6 +10,8 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,11 +26,12 @@ class TransactionApplicationIntegrationTest {
 
   @Autowired private TransferRepository repository;
 
+  private static final LocalDateTime firstTime = LocalDateTime.of(2024, 1, 1, 0, 1);
+  private static final LocalDateTime lastTime = LocalDateTime.of(2024, 1, 2, 0, 0);
+
   @Test
   void successfulRequest() throws Exception {
     putValuesIntoDb();
-    LocalDateTime firstTime = LocalDateTime.of(2024, 1, 1, 0, 1);
-    LocalDateTime lastTime = LocalDateTime.of(2024, 1, 2, 0, 0);
 
     mockMvc
         .perform(
@@ -44,6 +47,29 @@ class TransactionApplicationIntegrationTest {
   void badRequest_whenTimeFrameIsMissing() throws Exception {
     mockMvc
         .perform(get("/transactions").contentType(MediaType.APPLICATION_JSON))
+        .andExpect(status().isBadRequest());
+  }
+
+  @Test
+  void badRequest_whenBadParamNames() throws Exception {
+    mockMvc
+        .perform(
+            get("/transactions")
+                .param("firstDate", firstTime.toString())
+                .param("lastDate", lastTime.toString())
+                .contentType(MediaType.APPLICATION_JSON))
+        .andExpect(status().isBadRequest());
+  }
+
+  @ParameterizedTest
+  @ValueSource(strings = {"2024-01-02", "2024-01-02T00", "2024-01-02 00:00:00"})
+  void badRequest_whenBadFormat(String timeParam) throws Exception {
+    mockMvc
+        .perform(
+            get("/transactions")
+                .param("firstTime", "2024-01-01T00:01:00")
+                .param("lastTime", timeParam)
+                .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isBadRequest());
   }
 
